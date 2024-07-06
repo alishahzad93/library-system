@@ -21,7 +21,7 @@ public class BorrowerController {
     @Autowired
     IBookService bookService;
 
-    @PostMapping("/borrower")
+    @PostMapping("/borrowers")
     public ResponseEntity<Borrower> registerBorrower(@Valid @RequestBody Borrower borrower) {
         Borrower savedBorrower = borrowerService.register(borrower);
         return ResponseEntity.ok(savedBorrower);
