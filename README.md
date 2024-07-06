@@ -1,6 +1,8 @@
 Run the application using springboot's embedded tomcat.
 Database: PostgreSQL
 
+Database pointers can be changed in application.properties
+
 The API should allow API user to perform the following actions:
 1. Register a new borrower to the library.
   POST http://localhost:8080/borrowers

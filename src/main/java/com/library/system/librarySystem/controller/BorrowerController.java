@@ -26,7 +26,7 @@ public class BorrowerController {
         Borrower savedBorrower = borrowerService.register(borrower);
         return ResponseEntity.ok(savedBorrower);
     }
-    @PostMapping("/borrowers/{borrowerId}/books/{bookId}/borrow")
+    @GetMapping("/borrowers/{borrowerId}/books/{bookId}/borrow")
     public ResponseEntity<?> borrowBook(@PathVariable long borrowerId, @PathVariable long bookId) {
         Optional<Book> book = bookService.findById(bookId);
         if(book.isPresent()) {
@@ -47,7 +47,7 @@ public class BorrowerController {
         }
         return ResponseEntity.badRequest().body("No Book with id: " + bookId);
     }
-    @PostMapping("/borrowers/{borrowerId}/books/{bookId}/return")
+    @GetMapping("/borrowers/{borrowerId}/books/{bookId}/return")
     public ResponseEntity<?> returnBorrower(@PathVariable long borrowerId, @PathVariable long bookId) {
         Book returnedBook = borrowerService.returnBook(borrowerId,bookId);
                 if(returnedBook!=null) {
